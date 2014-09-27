@@ -37,7 +37,7 @@ class NeoPixel_Pattern {
   void setPixelColor(uint32_t c);
   void setWait(uint8_t wait);
   //void setCycle(uint8_t cycle);
-  void setDir(uint8_t wait);
+  void setDir(uint8_t dir);
   void setCycle(uint8_t cycle);
 
   protected:
@@ -53,8 +53,8 @@ class NeoPixel_Pattern {
   uint8_t  wait;
   uint8_t  dir;
 
-  uint8_t  cycleCounter;
-  uint8_t  cycle;
+  uint16_t  cycleCounter;
+  uint16_t  cycle;
 };
 
 #endif // PROC_BASE_CLASS

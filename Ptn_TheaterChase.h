@@ -32,9 +32,9 @@ class Ptn_TheaterChase : public NeoPixel_Pattern{
   uint8_t 
     process(void);
 
- private:
-  uint8_t  cycleCounter;
-  uint8_t  cycle;
+ protected:
+  virtual uint32_t getColorCode(int i);
+
 };
 
 #endif // THEATER_CHASE

@@ -15,8 +15,8 @@
   License along with NeoPixel.  If not, see
   <http://www.gnu.org/licenses/>.
   --------------------------------------------------------------------*/
-#ifndef  RAINBOW_H
-#define  RAINBOW_H
+#ifndef  PTN_FLAT_RAINBOW_H
+#define  PTN_FLAT_RAINBOW_H
 
 #include <Adafruit_NeoPixel.h>
 #include "NeoPixel_Pattern.h"
@@ -40,4 +40,4 @@ private:
 
 };
 
-#endif //  RAINBOW_H
+#endif //  PTN_FLAT_RAINBOW_H

@@ -1,6 +1,10 @@
 #include <Adafruit_NeoPixel.h>
 #include <Ptn_ColorWipe.h>
 #include <Ptn_TheaterChase.h>
+#include <Ptn_TheaterChaseRainbow.h>
+#include <Ptn_FlatRainbow.h>
+#include <Ptn_CycleRainbow.h>
+
 #define PIN 6
 #define NUMPIXELS      6
 
@@ -15,6 +19,10 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800
 Ptn_ColorWipe wipe = Ptn_ColorWipe(&strip);
 Ptn_ColorWipe wipeOut = Ptn_ColorWipe(&strip);
 Ptn_TheaterChase tc = Ptn_TheaterChase(&strip);
+Ptn_TheaterChaseRainbow tcr = Ptn_TheaterChaseRainbow(&strip);
+Ptn_FlatRainbow fr = Ptn_FlatRainbow(&strip);
+Ptn_CycleRainbow cr = Ptn_CycleRainbow(&strip);
+
 // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
 // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
 // and minimize distance between Arduino and first pixel.  Avoid connecting
@@ -38,6 +46,7 @@ void setup() {
   wipeOut.setPixelColor(strip.Color(  0,   0, 0));
   //wipeOut.setDir(WIPE_DIR_REVERSE);
   tc.setPixelColor(strip.Color(  0,   20, 20));
+  tc.setDir(FLOW_DIR_REVERSE);
 }
 
 uint8_t state=0;
@@ -47,23 +56,24 @@ void loop() {
   
 #if 0
   // Some example procedures showing how to display to the pixels:
-  colorWipe(strip.Color(255, 0, 0), 50); // Red
-  colorWipe(strip.Color(0, 255, 0), 50); // Green
-  colorWipe(strip.Color(0, 0, 255), 50); // Blue
+//  colorWipe(strip.Color(255, 0, 0), 50); // Red
+//  colorWipe(strip.Color(0, 255, 0), 50); // Green
+//  colorWipe(strip.Color(0, 0, 255), 50); // Blue
   // Send a theater pixel chase in...
-  theaterChase(strip.Color(127, 127, 127), 50); // White
-  theaterChase(strip.Color(127,   0,   0), 50); // Red
-  theaterChase(strip.Color(  0,   0, 127), 50); // Blue
+//  theaterChase(strip.Color(127, 127, 127), 50); // White
+//  theaterChase(strip.Color(127,   0,   0), 50); // Red
+//  theaterChase(strip.Color(  0,   0, 127), 50); // Blue
 
-  rainbow(20);
+//  rainbow(20);
   rainbowCycle(20);
-  theaterChaseRainbow(50);
+//  theaterChaseRainbow(50);
 #else
   uint8_t ret;
  
   switch(state)
   {
-  case 0:
+#if 0
+    case 0:
     ret = wipe.process();
     if( ret == 1 )
     { 
@@ -90,14 +100,39 @@ void loop() {
       tc.reset();
       state++;
     }
-    break;   
+    break;
+  case 4:
+    ret = tcr.process();
+    if( ret == 1 )
+    { 
+      tcr.reset();
+      state++;
+    }
+    break; 
+
+  case 5:
+    ret = fr.process();
+    if( ret == 1 )
+    { 
+      fr.reset();
+      state++;
+    }
+    break;
+#endif
+  case 6:
+    ret = cr.process();
+    if( ret == 1 )
+    { 
+      cr.reset();
+      state++;
+    }
+    break;      
   default:
     delay(500);
-    state = 0;
+    state = 6;
     break;
   }
-  
-  
+
   
 #endif
 }

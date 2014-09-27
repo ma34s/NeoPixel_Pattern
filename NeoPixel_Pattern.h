@@ -31,13 +31,14 @@ class NeoPixel_Pattern {
   // Constructor: number of LEDs, pin number, LED type
   NeoPixel_Pattern(Adafruit_NeoPixel* strip);
   ~NeoPixel_Pattern();
+  virtual uint8_t process(void)=0;
+  
   void reset();
   void setPixelColor(uint32_t c);
   void setWait(uint8_t wait);
   //void setCycle(uint8_t cycle);
   void setDir(uint8_t wait);
-
-  virtual uint8_t process(void)=0;
+  void setCycle(uint8_t cycle);
 
  protected:
   Adafruit_NeoPixel* strip;
@@ -48,6 +49,9 @@ class NeoPixel_Pattern {
   uint32_t  c;
   uint8_t  wait;
   uint8_t  dir;
+
+  uint8_t  cycleCounter;
+  uint8_t  cycle;
 };
 
 #endif // PROC_BASE_CLASS

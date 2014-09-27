@@ -1,17 +1,8 @@
 #include "Ptn_TheaterChase.h"
 Ptn_TheaterChase::Ptn_TheaterChase(Adafruit_NeoPixel* strip) : NeoPixel_Pattern(strip){
   cycle = 10;
-  cycleCounter = 0;
 }
 Ptn_TheaterChase::~Ptn_TheaterChase(){
-}
-void Ptn_TheaterChase::setCycle(uint8_t cycle){
-this->cycle = cycle;
-}
-
-void Ptn_TheaterChase::reset(void) {
-  NeoPixel_Pattern::reset();//
-  cycleCounter = 0;
 }
 
 uint8_t Ptn_TheaterChase::process(void) {

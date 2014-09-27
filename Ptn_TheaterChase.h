@@ -29,8 +29,6 @@ class Ptn_TheaterChase : public NeoPixel_Pattern{
   // Constructor: number of LEDs, pin number, LED type
   Ptn_TheaterChase(Adafruit_NeoPixel* strip);
   ~Ptn_TheaterChase();
-  void reset();
-  void setCycle(uint8_t cycle);
   uint8_t 
     process(void);
 

@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For Adafruit_NeoPixel
+####################################### 
+# Class
+#######################################
+
+NeoPixel_Pattern	KEYWORD1
+Ptn_ColorWipe		KEYWORD1
+Ptn_TheaterChase	KEYWORD1
+
+#######################################
+# Methods and Functions 
+#######################################	
+
+setPixelColor	KEYWORD2
+setPin			KEYWORD2
+setBrightness	KEYWORD2
+numPixels		KEYWORD2
+getPixelColor	KEYWORD2
+Color			KEYWORD2
+
+#######################################
+# Constants
+#######################################
+FLOW_DIR_NORMAL		LITERAL1
+FLOW_DIR_REVERSE	LITERAL1

@@ -19,6 +19,9 @@ void NeoPixel_Pattern::setWait(uint8_t wait){
 	this->wait = wait;
 }
 
+void NeoPixel_Pattern::setDir(uint8_t dir){
+	this->dir = dir;
+}
 void NeoPixel_Pattern::setCycle(uint8_t cycle){
 	this->cycle = cycle;
 }

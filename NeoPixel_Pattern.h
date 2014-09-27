@@ -40,6 +40,9 @@ class NeoPixel_Pattern {
   void setDir(uint8_t wait);
   void setCycle(uint8_t cycle);
 
+  protected:
+   uint32_t Wheel(byte WheelPos);
+
  protected:
   Adafruit_NeoPixel* strip;
   const uint16_t

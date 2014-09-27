@@ -24,6 +24,8 @@
 #define FLOW_DIR_NORMAL		0
 #define FLOW_DIR_REVERSE	1
 
+#define RAINBOW_MAX_STEP	256
+
 class NeoPixel_Pattern {
 
  public:
@@ -39,7 +41,7 @@ class NeoPixel_Pattern {
   //void setCycle(uint8_t cycle);
   void setDir(uint8_t dir);
   void setCycle(uint8_t cycle);
-
+  void setRainbowSpeed(uint16_t rainbowSpeed);
   protected:
    uint32_t Wheel(byte WheelPos);
 
@@ -55,6 +57,9 @@ class NeoPixel_Pattern {
 
   uint16_t  cycleCounter;
   uint16_t  cycle;
+
+  uint16_t  mRainbowSpeed;
+  
 };
 
 #endif // PROC_BASE_CLASS

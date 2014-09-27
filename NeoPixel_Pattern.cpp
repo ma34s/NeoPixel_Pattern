@@ -8,6 +8,8 @@ NeoPixel_Pattern::NeoPixel_Pattern(Adafruit_NeoPixel* strip) : numLEDs(strip->nu
   wait  = 50;
   dir	= FLOW_DIR_NORMAL;
   cycle = 1;
+
+  mRainbowSpeed = 1;
 }
 NeoPixel_Pattern::~NeoPixel_Pattern(){
 }
@@ -30,6 +32,11 @@ void NeoPixel_Pattern::reset(void) {
   counter = 0;
   cycleCounter = 0;
   time = 0;  //
+}
+
+void NeoPixel_Pattern::setRainbowSpeed(uint16_t rainbowSpeed)
+{
+  this->mRainbowSpeed = rainbowSpeed;
 }
 
 
